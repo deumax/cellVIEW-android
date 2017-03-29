@@ -105,6 +105,11 @@ public class CutObjectManager : MonoBehaviour
             }
         }
 
+		if (GPUBuffers.Get.CutInfo == null) {
+			Debug.Log ("CutObjectManager.updateCutObjects: CutInfo is null");
+		} else {
+			Debug.Log ("CutObjectManager.updateCutObjects: CutInfo is NOT null");
+		}
         GPUBuffers.Get.CutInfo.SetData(CutInfos.ToArray());
         GPUBuffers.Get.CutScales.SetData(CutScales.ToArray());
         GPUBuffers.Get.CutPositions.SetData(CutPositions.ToArray());

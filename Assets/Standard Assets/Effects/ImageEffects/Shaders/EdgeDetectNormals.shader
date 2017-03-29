@@ -279,6 +279,7 @@ Subshader {
 	  ZTest Always Cull Off ZWrite Off
 
       CGPROGRAM
+      #pragma exclude_renderers gles3
       #pragma vertex vertThin
       #pragma fragment fragThin
       ENDCG
@@ -287,6 +288,7 @@ Subshader {
 	  ZTest Always Cull Off ZWrite Off
 
       CGPROGRAM
+      #pragma exclude_renderers gles3
       #pragma vertex vertRobert
       #pragma fragment fragRobert
       ENDCG

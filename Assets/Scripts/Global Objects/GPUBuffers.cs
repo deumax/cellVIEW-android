@@ -289,7 +289,11 @@ public class GPUBuffers : MonoBehaviour
 
         //*****//
         
-        if (CutInfo == null) CutInfo = new ComputeBuffer(NumCutsMax * NumProteinTypeMax, 48);
+		if (CutInfo == null) {
+			Debug.Log ("GPUBuffers.initBuffers: CutInfo is null");
+			CutInfo = new ComputeBuffer (NumCutsMax * NumProteinTypeMax, 48);
+		}
+
         if (CutScales == null) CutScales = new ComputeBuffer(NumCutsMax, 16);
         if (CutPositions == null) CutPositions = new ComputeBuffer(NumCutsMax, 16);
         if (CutRotations == null) CutRotations = new ComputeBuffer(NumCutsMax, 16);
