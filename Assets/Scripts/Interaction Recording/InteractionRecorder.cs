@@ -432,8 +432,9 @@ public class InteractionRecorder : MonoBehaviour {
 
     public void LoadFlythroughsDefault()
     {
-        var path = Application.dataPath;
-        path += "/../Data/RecordedFlythroughs/record1.json"; // I think this will not work when I run this from build
+        //var path = Application.dataPath;
+        //path += "/../Data/RecordedFlythroughs/record1.json"; // I think this will not work when I run this from build
+		var path = "Data/RecordedFlythroughs/record1";
         LoadFlythroughs(path);
     }
 
@@ -442,7 +443,9 @@ public class InteractionRecorder : MonoBehaviour {
         //var path = Application.dataPath;
         //path += "/../Data/RecordedFlythroughs/record1.json"; // I think this will not work when I run this from build
 
-        var str = File.ReadAllText(path);
+        //var str = File.ReadAllText(path);
+		TextAsset targetFile = Resources.Load<TextAsset>(path);
+		var str = targetFile.text;
 
         var loadedFlythroughs = JsonConvert.DeserializeObject<List<FlythroughSerializable>>(str);
 

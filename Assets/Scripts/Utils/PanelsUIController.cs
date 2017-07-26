@@ -81,8 +81,12 @@ public class PanelsUIController : MonoBehaviour {
         tutorialSelecting = GameObject.Find("Tutorial/Selecting");
         tutorialFinish = GameObject.Find("Tutorial/Finish");
 
-        var path = Application.dataPath;
-        path += "/../Data/RecordedFlythroughs/tutorial.json"; // I think this will not work when I run this from build
+        //var path = Application.dataPath;
+        //path += "/../Data/RecordedFlythroughs/tutorial.json"; // I think this will not work when I run this from build
+		var path = "Data/RecordedFlythroughs/tutorial";
+
+
+
         InteractionRecorder.Get.LoadFlythroughs(path);
 
     }

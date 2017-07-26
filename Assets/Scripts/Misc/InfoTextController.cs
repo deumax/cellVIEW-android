@@ -78,7 +78,6 @@ public class InfoTextController : MonoBehaviour {
             return;
         }
 		Debug.Log ("InfoTextController.LoadInfosAndNames: succesfully loaded up description file");
-		Debug.LogError("successfully loaded descri file");
 
         var content = JSON.Parse(strContent);
         Debug.Log(content["key"]["description"]);
