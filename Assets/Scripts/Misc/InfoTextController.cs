@@ -64,26 +64,31 @@ public class InfoTextController : MonoBehaviour {
         infoNames = new Dictionary<string, string>();
 
         string strContent = "";
+		string filePath = "compartment-descriptions";
         // TODO parse JSON file with descriptions
         try
         {
-            strContent = File.ReadAllText(Application.dataPath + "/Resources/compartment-descriptions.json"); // ReadAllText vs ReadAllLines????
-        } catch
+            //strContent = File.ReadAllText(Application.dataPath + "/Resources/compartment-descriptions.json"); // ReadAllText vs ReadAllLines????
+			TextAsset targetFile = Resources.Load<TextAsset>(filePath);
+			strContent = targetFile.text;
+		} catch
         {
             Debug.LogError("Could NOT load up description file!");
+			Debug.LogError("path is: " + filePath);
             return;
         }
 		Debug.Log ("InfoTextController.LoadInfosAndNames: succesfully loaded up description file");
-        
+		Debug.LogError("successfully loaded descri file");
 
         var content = JSON.Parse(strContent);
         Debug.Log(content["key"]["description"]);
 
         foreach (var key in content.GetAllKeys())
-        {
-            infoTexts.Add(key, content[key]["descr"]);
+        {         
+			infoTexts.Add(key, content[key]["descr"]);
             infoNames.Add(key, content[key]["name"]);
         }
+
     }
 
     public void ShowInfoFor(string path)
