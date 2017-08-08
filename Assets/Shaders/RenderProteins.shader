@@ -1,7 +1,7 @@
 Shader "Custom/RenderProteins" 
 {	
 	CGINCLUDE
-		
+
 	#include "UnityCG.cginc"
 	#include "Helper.cginc"		
 	
@@ -84,6 +84,7 @@ Shader "Custom/RenderProteins"
 	
 	void vs_protein(uint id : SV_VertexID, out ds_input output)
 	{		
+		UNITY_INITIALIZE_OUTPUT(ds_input, output);
 		int4 sphereBatchInfo = _ProteinSphereBatchInfos[id];	
 		
 		float4 infos = _ProteinInstanceInfo[sphereBatchInfo.x];		
@@ -344,8 +345,12 @@ Shader "Custom/RenderProteins"
 
 			#include "UnityCG.cginc"
 
-			#pragma only_renderers d3d11
+			//#pragma only_renderers d3d11
+			//#pragma only_renderers gles3 glcore
+			//#pragma only_renderers gles3
 			#pragma target 5.0				
+			//#pragma target 4.0
+			#pragma debug // added max
 
 			#pragma vertex vs_protein
 			#pragma hull hs_protein
@@ -362,12 +367,14 @@ Shader "Custom/RenderProteins"
 			ZWrite On
 
 	    	CGPROGRAM			
-	    		
 			#include "UnityCG.cginc"
 			
-			#pragma only_renderers d3d11
-			#pragma target 5.0				
-			
+			//#pragma only_renderers d3d11
+			#pragma target 5.0			
+			//#pragma only_renderers gles3	
+			//#pragma target 4.0
+	    	//#pragma debug // added max
+
 			#pragma vertex vs_protein
 			#pragma hull hs_protein
 			#pragma domain ds_protein				
@@ -383,11 +390,14 @@ Shader "Custom/RenderProteins"
 			ZWrite On
 
 	    	CGPROGRAM			
-	    		
 			#include "UnityCG.cginc"
 			
-			#pragma only_renderers d3d11
-			#pragma target 5.0				
+			//#pragma only_renderers d3d11
+			#pragma target 5.0	
+			//#pragma only_renderers gles3	
+			//#pragma target 4.0			
+	    	//#pragma debug // added max
+			
 			
 			#pragma vertex vs_protein
 			#pragma hull hs_protein
@@ -404,11 +414,13 @@ Shader "Custom/RenderProteins"
 			ZWrite On
 
 	    	CGPROGRAM			
-	    		
 			#include "UnityCG.cginc"
 			
-			#pragma only_renderers d3d11
-			#pragma target 5.0				
+			//#pragma only_renderers d3d11
+			#pragma target 5.0
+			//#pragma only_renderers gles3	
+			//#pragma target 4.0				
+	    	#pragma debug // added max
 			
 			#pragma vertex vs_protein
 			#pragma hull hs_protein

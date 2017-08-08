@@ -207,6 +207,7 @@ public class SceneManager : MonoBehaviour
 
     public void AddIngredientToHierarchy(string ingredientUrlPath)
     {
+		Debug.Log ("SceneManager.AddIngredientToHierarchy");
         var urlPathSplit = MyUtility.SplitUrlPath(ingredientUrlPath);
         int parentIndexInHierarchy = -1;
 
@@ -470,6 +471,7 @@ public class SceneManager : MonoBehaviour
 
     public void AddMembrane(string filePath, Vector3 position, Quaternion rotation)
     {
+		Debug.Log ("SceneManager.AddMembrane path: " + filePath);
         var groupName = "membrane";
         var groupPath = "root.envelope." + groupName;
 

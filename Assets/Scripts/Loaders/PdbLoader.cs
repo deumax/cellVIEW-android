@@ -15,6 +15,7 @@ public static class PdbLoader
 
     public static List<Atom> LoadAtomDataFull(string fileName)
     {
+		Debug.Log ("PdbLoader: LoadAtomDataFull with path: " + fileName);
         var path = GetPdbFile(fileName, DefaultPdbDirectory);
         var atomData = ReadAtomData(path);
         var helixData = ReadHelixData(path);
@@ -123,6 +124,7 @@ public static class PdbLoader
 
     public static string GetFile(string directory, string fileName, string extention)
     {
+		Debug.Log ("PdbLoader.GetFile: dir: " + directory);
         var filePath = directory + fileName + "." + extention;
 
         if (!File.Exists(filePath))
@@ -152,6 +154,7 @@ public static class PdbLoader
 
     private static string GetPdbFile(string fileName, string directory)
     {
+		Debug.Log ("PdbLoader.GetPdbFile: dir: " + directory);
         var filePath = directory + fileName + ".pdb";
 
         if (!File.Exists(filePath))

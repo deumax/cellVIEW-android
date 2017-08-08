@@ -80,7 +80,7 @@ public class InfoTextController : MonoBehaviour {
 		Debug.Log ("InfoTextController.LoadInfosAndNames: succesfully loaded up description file");
 
         var content = JSON.Parse(strContent);
-        Debug.Log(content["key"]["description"]);
+        //Debug.Log(content["key"]["description"]);
 
         foreach (var key in content.GetAllKeys())
         {         

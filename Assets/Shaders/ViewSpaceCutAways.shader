@@ -171,7 +171,7 @@
 
 			#include "UnityCG.cginc"
 
-			#pragma only_renderers d3d11
+			//#pragma only_renderers d3d11
 			#pragma target 5.0				
 
 			#pragma vertex vs_protein			
@@ -198,7 +198,7 @@
 
 			#include "UnityCG.cginc"
 
-			#pragma only_renderers d3d11
+			//#pragma only_renderers d3d11
 			#pragma target 5.0				
 
 			#pragma vertex vs_protein			
@@ -227,7 +227,7 @@
 
 			#include "UnityCG.cginc"
 
-			#pragma only_renderers d3d11
+			//#pragma only_renderers d3d11
 			#pragma target 5.0				
 
 			#pragma vertex vs_lipid			
@@ -253,7 +253,7 @@
 
 			#include "UnityCG.cginc"
 
-			#pragma only_renderers d3d11
+			//#pragma only_renderers d3d11
 			#pragma target 5.0				
 
 			#pragma vertex vs_lipid			
@@ -282,7 +282,7 @@
 
 			#include "UnityCG.cginc"
 
-			#pragma only_renderers d3d11
+			//#pragma only_renderers d3d11
 			#pragma target 5.0				
 
 			#pragma vertex vs_protein			
@@ -311,7 +311,7 @@
 
 			#include "UnityCG.cginc"
 
-			#pragma only_renderers d3d11
+			//#pragma only_renderers d3d11
 			#pragma target 5.0				
 
 			#pragma vertex vs_lipid			

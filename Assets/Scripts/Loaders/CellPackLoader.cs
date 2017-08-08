@@ -16,11 +16,13 @@ namespace Loaders
 
         public static void ReloadCellPackRecipe()
         {
+			Debug.Log ("CellPackLoader: ReloadCellPackRecipe");
             LoadCellPackRecipe(GlobalProperties.Get.LastRecipeFileLoaded);
         }
 
         public static void LoadCellPackRecipe(string path = null)
         {
+			Debug.Log ("loading cell pack recipe with path: " + path);
             SceneManager.Get.ClearScene();
 
             if (string.IsNullOrEmpty(path) || !File.Exists(path))
@@ -41,6 +43,7 @@ namespace Loaders
 
         public static void LoadRecipe(Compartment rootCompartment)
         {
+			Debug.Log("CellPackLoader: LoadRecipe");
             // Flatten all the hierarchy
             //SceneManager.Get.Compartments = CompartmentUtility.GetCompartments(rootCompartment);
             SceneManager.Get.IngredientGroups = CompartmentUtility.GetIngredientGroups(rootCompartment);
@@ -63,6 +66,7 @@ namespace Loaders
 
         public static List<Atom> GetAtoms(Ingredient ingredient)
         {
+			Debug.Log ("CellPackLoader: GetAtoms");
             var name = ingredient.name;
             var pdbName = ingredient.source.pdb.Replace(".pdb", "");
 
@@ -103,6 +107,7 @@ namespace Loaders
 
         public static void AddProteinIngredient(ref Ingredient ingredient)
         {
+			Debug.Log ("CellPackLoader: AddProteinIngredient");
             var path = ingredient.path;
             var biomt = ingredient.source.biomt;
             var pdbName = ingredient.source.pdb.Replace(".pdb", "");
@@ -180,11 +185,13 @@ namespace Loaders
 
         public static void ReloadCellPackPositions()
         {
+			Debug.Log ("CellPackLoader: ReloadCellPackPositions");
             LoadCellPackPositions(GlobalProperties.Get.LastPositionsFileLoaded);
         }
 
         public static void LoadCellPackPositions(string path = null)
         {
+			Debug.Log ("CellPackLoader: LoadCellPackPositions");
             if (string.IsNullOrEmpty(path) || !File.Exists(path))
             {
                 path = MyUtility.GetInputFile("bin", GlobalProperties.Get.LastPositionsFileLoaded);
@@ -202,6 +209,7 @@ namespace Loaders
 
         private static void LoadPositions(string path)
         {
+			Debug.Log ("CellPackLoader: LoadPositions");
             var numInstances = SceneManager.Get.ProteinInstanceCount;
 
             if (numInstances == 0)
@@ -263,6 +271,7 @@ namespace Loaders
 
         public static void LoadMembrane(string path = null)
         {
+			Debug.Log ("CellPackLoader: LoadMembrane");
             if (string.IsNullOrEmpty(path) || !File.Exists(path))
             {
                 path = MyUtility.GetInputFile("mbr", GlobalProperties.Get.LastMembraneFileLoaded);
@@ -281,6 +290,7 @@ namespace Loaders
         // This method is taken from old submission
         public static void LoadRNA()
         {
+			Debug.Log ("CellPackLoader: LoadRNA");
             var rnaControlPointsPath = Application.dataPath + "/../Data/proteins/rna_allpoints.txt";
             if (!File.Exists(rnaControlPointsPath)) throw new Exception("No file found at: " + rnaControlPointsPath);
 
