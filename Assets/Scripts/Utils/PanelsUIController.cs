@@ -53,6 +53,7 @@ public class PanelsUIController : MonoBehaviour {
     private GameObject tutorialFinish;
 
     private float _keyDownStartTime;
+	private float _touchBeganStartTime;
 
     public void OnEnable()
     {
@@ -323,6 +324,29 @@ public class PanelsUIController : MonoBehaviour {
     bool AnyKeyPushedTest()
     {
         var keyPushed = false;
+		var touched = false;
+
+		if (Input.touches.Length > 0) {
+			Touch touch = Input.touches [0];
+			if (touch.phase == TouchPhase.Began) {
+				Debug.Log ("Touch began");
+				_touchBeganStartTime = Time.realtimeSinceStartup;
+			}
+			if (touch.phase == TouchPhase.Ended) {
+				Debug.Log ("Touch ended");
+				var delta = Time.realtimeSinceStartup - _touchBeganStartTime;
+				if (delta < 0.5f)
+				{
+					touched = true;
+				}
+			}
+		}
+
+//		foreach (Touch touch in Input.touches) {
+//			if (touch.phase == TouchPhase.Began) {
+//			
+//			}
+//		}
 
         if (Event.current.type == EventType.KeyDown)
         {
@@ -338,7 +362,7 @@ public class PanelsUIController : MonoBehaviour {
             }
         }
 
-        return keyPushed;
+		return keyPushed || touched;
     }
 
     /* ***** */

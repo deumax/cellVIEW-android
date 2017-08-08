@@ -637,7 +637,7 @@ public class SceneRenderer : MonoBehaviour
     [ImageEffectOpaque]
     void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
-        //return;
+        return;
 
         if (_camera.pixelWidth == 0 || _camera.pixelHeight == 0) return;
 
@@ -678,7 +678,7 @@ public class SceneRenderer : MonoBehaviour
         {
             RenderUtils.ComputeSphereBatches(_camera);
             //DebugSphereBatchCount();
-            RenderUtils.DrawProteinsAtoms(RenderProteinsMaterial, _camera, instanceIdBuffer.colorBuffer, atomIdBuffer.colorBuffer, depthBuffer.depthBuffer, 0);
+            //RenderUtils.DrawProteinsAtoms(RenderProteinsMaterial, _camera, instanceIdBuffer.colorBuffer, atomIdBuffer.colorBuffer, depthBuffer.depthBuffer, 0); // TODO uncomment
         }
 
         // Draw Lipids
